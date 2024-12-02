@@ -196,7 +196,8 @@ For more information on using the Angular CLI, including detailed command refere
 
 ## Βήμα 2: Δημιουργία νέου component
  
-- Δημιουργία ενός νέου component με την εντολή `ng generate component components/person-table`.
+
+- Δημιουργία ενός νέου component με την εντολή `ng g c components/person-table --dry-run` and then `ng generate component components/person-table`.
 - Μεταφορά του πίνακα από το `app.component.html` στο template του νέου component.
 - Μεταφορά του χαρακτηριστικού `person` από την κλάση `AppComponent` στην κλάση `PersonTableComponent`.
 - Συμπερίληψη της κλάσης `PersonTableComponent` στον πίνακα `imports` στην αρχικοποίηση του decorator στο αρχείο `app.component.ts`.
@@ -244,4 +245,17 @@ For more information on using the Angular CLI, including detailed command refere
   @for (user of users; track user) {
 <app-person-table [person]="user"></app-person-table>
   }
+
+## Βήμα 5: Event binding
+ 
+- Δέσμευση μεθόδου της κλάσης (event handler) στο συμβάν `event` του template με χρήση του `(eventName)="onEventName($event)"`
+ 
+  ```html
+<button (click)="onAddPerson()">Add Person</button>
+  ```
+ 
+- Χρήση του event `input` από ένα HTML input element για ανάγνωση της τιμής του στην κλάση και στη συνέχεια πέρασμα πίσω στο template με χρήση της απλής δέσμευση με το `{{ <atribute_name > }}`
+ 
+  ```html
+<input type="text" (input)="onInput($event)" />
   
