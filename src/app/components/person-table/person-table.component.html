@@ -1,3 +1,7 @@
+@if (!person) {
+  <div class="alert alert-danger text-center">No Person Details</div>
+} @else {
+
 <table class="table table-bordered w-50 mx-auto">
     <caption class="caption-top fw-bold bg-primary text-light text-center">
       Person Details
@@ -23,4 +27,4 @@
       <td class="ps-2">{{ person.address }}</td>
     </tr>
   </table>
-  
+}
