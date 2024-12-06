@@ -13,11 +13,8 @@ export const routes: Routes = [
     component: ComponentInputExampleComponent,
   },
   { path: 'for-directive-example', component: ForDirectiveExampleComponent },
-<<<<<<< HEAD
-=======
   {
     path: 'simple-datatable-example',
     component: SimpleDatatableExampleComponent,
   },
->>>>>>> 08-simple-datatable
 ];
