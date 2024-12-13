@@ -1,8 +1,7 @@
-<h4 class="d-flex justify-content-center">Template Driven Form Example works!</h4>
+<h4 class="d-flex justify-content-center">Reactive Form Example</h4>
 
 <div class="d-flex gap-4 justify-content-center">
-  <app-eperson-template-driven-form (person)="onPerson($event)">
-  </app-eperson-template-driven-form>
+  <app-eperson-reactive-form (person)="onPerson($event)"></app-eperson-reactive-form>
 
   <div class="d-flex flex-column gap-4 mt-4">
     <app-person-table [person]="currentPerson"> </app-person-table>
