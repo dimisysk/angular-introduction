@@ -6,6 +6,7 @@ import { SimpleDatatableComponent } from '../simple-datatable/simple-datatable.c
 
 @Component({
   selector: 'app-reactive-form-example',
+  standalone:true,
   imports: [
     EpersonReactiveFormComponent,
     PersonTableComponent,

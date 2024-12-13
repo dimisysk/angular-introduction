@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { EPerson, Person } from 'src/app/shared/interfaces/person';
+import { EPerson } from 'src/app/shared/interfaces/person';
 
 @Component({
   selector: 'app-eperson-reactive-form',

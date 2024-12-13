@@ -22,13 +22,13 @@
       <td class="ps-2">{{ person.email }}</td>
     </tr>
 
-    @if (isPerdson()) {
+    @if (isPerson()) {
       <tr>
         <td class="fw-semibold text-end">Address</td>
         <td class="ps-2">{{ person["address"] }}</td>
       </tr>
     }
-    @if (isEPerdson()) {
+    @if (isEPerson()) {
       <tr>
         <td class="fw-semibold text-end">Address</td>
         <td class="ps-2">{{ person["education"] }}</td>

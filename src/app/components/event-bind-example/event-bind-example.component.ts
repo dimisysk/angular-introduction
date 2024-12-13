@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-event-bind-example',
+  standalone:true,
   imports: [],
   templateUrl: './event-bind-example.component.html',
-  styleUrl: './event-bind-example.component.css'
+  styleUrl: './event-bind-example.component.css',
 })
 export class EventBindExampleComponent {
   times: number = 0;
@@ -15,7 +16,9 @@ export class EventBindExampleComponent {
   }
 
   decrementTimes() {
-    this.times--;
+    if (this.times > 0) {
+      this.times--;
+    }
   }
 
   resetTimes() {
@@ -25,6 +28,5 @@ export class EventBindExampleComponent {
   onUserInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.userInput = value;
-
   }
 }

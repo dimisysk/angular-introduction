@@ -5,6 +5,7 @@ import { PersonTableComponent } from '../person-table/person-table.component';
 
 @Component({
   selector: 'app-for-directive-example',
+  standalone:true,
   imports: [PersonTableComponent],
   templateUrl: './for-directive-example.component.html',
   styleUrl: './for-directive-example.component.css',
