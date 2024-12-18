@@ -1,31 +1,34 @@
-<div class="d-flex justify-content-center mt-3">
-  <div>
-    <h4>Event Bind Example</h4>
+<div class="d-flex justify-content-center mt-3"> 
+  <div class="w-50"> <!-- Προσθήκη w-50 για 50% πλάτος -->
+    <h4 class="d-flex justify-content-center">Event Bind Example</h4>
 
     <div class="d-flex flex-column justify-content-center gap-2 mt-4">
       <div class="d-flex gap-2 align-items-center">
         <button
           class="btn btn-primary btn-sm flex-grow-1"
-          (click)="decrementTimes()"
-        >
+          (click)="decrementTimes()">
           -
         </button>
         <span>{{ times }}</span>
         <button
           class="btn btn-primary btn-sm flex-grow-1"
-          (click)="incrementTimes()"
-        >
+          (click)="incrementTimes()">
           +
         </button>
       </div>
-      <button class="btn btn-primary btn-sm" (click)="resetTimes()">
+      <button
+        class="btn btn-primary btn-sm"
+        (click)="resetTimes()">
         Reset
       </button>
 
-      <div class="mt-2 mb-2 d-flex flex-column  gap-2 w-55">
-        <input type="text" class="form-control" (input)="onUserInput($event)" />
+      <div class="mt-2 mb-2 d-flex flex-column gap-2">
+        <input
+          type="text"
+          class="form-control"
+          (input)="onUserInput($event)" />
         @if (!userInput) {
-          <span class="text-danger">No User Input</span>
+          <span class="text-danger text-center w-100">No User Input</span>
         } @else {
           <span class="text-bg-info p-2 text-truncate">
             {{ userInput }}
