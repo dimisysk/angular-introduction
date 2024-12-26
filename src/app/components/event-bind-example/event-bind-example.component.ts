@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export class EventBindExampleComponent {
   times: number = 0;
-
   userInput: string = '';
+
   incrementTimes() {
     this.times++;
   }
