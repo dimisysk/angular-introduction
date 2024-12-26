@@ -38,7 +38,11 @@ export class UserRegistrationComponent {
     {
       givenName: new FormControl('', Validators.required),
       surName: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
+      ]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(4),
@@ -82,5 +86,22 @@ export class UserRegistrationComponent {
       success: false,
       message: 'Not attempted yet',
     };
+  }
+
+  checkDuplicateEmail() {
+    const email = this.form.get('email').value;
+
+    this.userService.checkDuplicateEmail(email).subscribe({
+      next: (response) => {
+        console.log(response.msg);
+        this.form.get('email').setErrors(null);
+      },
+      error: (response) => {
+        const message = response.error.msg;
+        console.log(response.message);
+
+        this.form.get('email').setErrors({ duplicateEmail: true });
+      },
+    });
   }
 }

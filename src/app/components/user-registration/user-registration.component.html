@@ -1,5 +1,6 @@
 <h4>User registration Example</h4>
 
+<!-- Αν η εγγραφή δεν έχει επιχειρηθεί ακόμα -->
 @if (registrationStatus.message === "Not attempted yet") {
   <form
     [formGroup]="form"
@@ -31,9 +32,16 @@
       <input
         matInput
         type="email"
+        (blur)="checkDuplicateEmail()"
         formControlName="email" />
-      @if (form.get("email").invalid && form.get("email").touched) {
+      @if (form.get("email").hasError("duplicateEmail")) {
+        <mat-error>Email is already registered</mat-error>
+      } @else if (
+        form.get("email").hasError("required") && form.get("email").touched
+      ) {
         <mat-error>Email is missing or invalid</mat-error>
+      } @else if (form.get("email").hasError("pattern")) {
+        <mat-error>Please enter a valid email address</mat-error>
       }
     </mat-form-field>
 
@@ -69,18 +77,20 @@
         matInput
         type="password"
         formControlName="confirmPassword"
-        #passwordInput />
+        #confirmPasswordInput />
       <button
         mat-icon-button
         matSuffix
         type="button"
         (click)="
-          passwordInput.type =
-            passwordInput.type === 'password' ? 'text' : 'password'
+          confirmPasswordInput.type =
+            confirmPasswordInput.type === 'password' ? 'text' : 'password'
         ">
         <mat-icon>
           {{
-            passwordInput.type === "password" ? "visibility_off" : "visibility"
+            confirmPasswordInput.type === "password"
+              ? "visibility_off"
+              : "visibility"
           }}
         </mat-icon>
       </button>
@@ -102,18 +112,22 @@
       Register
     </button>
   </form>
-} @else {
+}
+
+<!-- Αν η εγγραφή έχει γίνει -->
+@else {
   @if (registrationStatus.success) {
     <div class="alert alert-success mt-2 w-50">
-      <strong>success:</strong>
+      <strong>Success:</strong>
       {{ registrationStatus.message }}
     </div>
   } @else {
     <div class="alert alert-danger mt-2 w-50">
-      <strong>Error</strong>
+      <strong>Error:</strong>
       {{ registrationStatus.message }}
     </div>
   }
+
   <button
     mat-flat-button
     color="primary"
