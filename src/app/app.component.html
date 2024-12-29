@@ -1,15 +1,24 @@
-<div class="container">
+<div class="container bg-light">
   <div class="d-flex flex-column gap-2">
-    <nav class="navbar navbar-dark bg-primary justify-content-center">
-      <a role="button" class="navbar-brand ms-3" routerLink=""
-        >CF5 Angular Introduction</a
-      >
+    <nav class="navbar navbar-dark bg-primary justify-content-between">
+      <a
+        role="button"
+        class="navbar-brand ms-3"
+        routerLink="">
+        CF5 Angular Introduction
+      </a>
+      <a
+        role="button"
+        class="navbar-brand ms-3"
+        routerLink="login">
+        login
+      </a>
     </nav>
 
-    <div class="d-flex flex-row gap-2">
-      <app-list-group-menu class="w-25"></app-list-group-menu>
-      <div class="flex-grow-1 p-2 text-nowrap w-75 ">
-        <router-outlet></router-outlet>
+    <div class="d-flex flex-row gap-2 ">
+      <app-list-group-menu class="w-25 "></app-list-group-menu>
+      <div class="flex-grow-1 p-2 text-nowrap w-75">
+        <router-outlet ></router-outlet>
       </div>
     </div>
   </div>
